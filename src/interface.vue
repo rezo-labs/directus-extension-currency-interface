@@ -1,5 +1,5 @@
 <template>
-	<input :value="value" @input="handleChange($event.target.value)" />
+	<v-input :model-value="value" @input="handleChange($event.target.value)" />
 </template>
 
 <script lang="ts">
@@ -8,7 +8,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
 	props: {
 		value: {
-			type: String,
+			type: [String, Number],
 			default: null,
 		},
 	},

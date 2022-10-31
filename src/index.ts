@@ -2,11 +2,11 @@ import { defineInterface } from '@directus/extensions-sdk';
 import InterfaceComponent from './interface.vue';
 
 export default defineInterface({
-	id: 'custom',
-	name: 'Custom',
-	icon: 'box',
-	description: 'This is my custom interface!',
+	id: 'currency',
+	name: 'Currency',
+	icon: 'paid',
+	description: 'Interface for currency',
 	component: InterfaceComponent,
 	options: null,
-	types: ['string'],
+	types: ['integer', 'bigInteger', 'float', 'string'],
 });
