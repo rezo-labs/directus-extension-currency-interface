@@ -8,5 +8,5 @@ export default defineInterface({
 	description: 'Interface for currency',
 	component: InterfaceComponent,
 	options: null,
-	types: ['integer', 'bigInteger', 'float', 'string'],
+	types: ['integer', 'bigInteger', 'float', 'decimal', 'string'],
 });
