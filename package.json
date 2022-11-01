@@ -1,6 +1,16 @@
 {
 	"name": "directus-extension-currency-interface",
-	"version": "1.0.0",
+	"version": "1.0.1",
+	"description": "Interface for currency",
+	"author": {
+		"email": "duydvu98@gmail.com",
+		"name": "Vũ Đức Duy"
+	},
+	"license": "gpl-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rezo-labs/directus-extension-currency-interface.git"
+	},
 	"keywords": [
 		"directus",
 		"directus-extension",
