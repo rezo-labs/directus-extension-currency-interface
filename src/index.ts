@@ -7,6 +7,31 @@ export default defineInterface({
 	icon: 'paid',
 	description: 'Interface for currency',
 	component: InterfaceComponent,
-	options: null,
+	options: [
+		{
+			field: 'prefix',
+			name: 'Prefix',
+			type: 'string',
+			meta: {
+				width: 'half',
+				interface: 'system-input-translated-string',
+				options: {
+					trim: false,
+				},
+			},
+		},
+		{
+			field: 'suffix',
+			name: 'Suffix',
+			type: 'string',
+			meta: {
+				width: 'half',
+				interface: 'system-input-translated-string',
+				options: {
+					trim: false,
+				},
+			},
+		},
+	],
 	types: ['integer', 'bigInteger', 'float', 'decimal', 'string'],
 });

@@ -27,6 +27,14 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		prefix: {
+			type: String,
+			default: '',
+		},
+		suffix: {
+			type: String,
+			default: '',
+		},
 	},
 	emits: ['input'],
 	setup(props, { emit }) {
@@ -37,7 +45,7 @@ export default defineComponent({
 				value = parseFloat(value);
 				if (isNaN(value)) return null;
 			}
-			return formatter.format(value);
+			return props.prefix + formatter.format(value) + props.suffix;
 		});
 
 		const inputType = computed(() => {
