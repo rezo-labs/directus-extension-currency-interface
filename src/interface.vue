@@ -1,14 +1,17 @@
 <template>
 	<v-input v-if="disabled" :model-value="formattedValue" disabled />
-	<div v-else class="currency-interface" :class="{ focus }">
-		<v-input
-			:model-value="value"
-			:type="inputType"
-			@focus="focus = true"
-			@blur="focus = false"
-			@update:model-value="handleChange($event)"
-		/>
-		<div class="formatted-currency">{{ formattedValue }}</div>
+	<div v-else>
+		<div class="currency-interface" :class="{ focus }">
+			<v-input
+				:model-value="value"
+				:type="inputType"
+				@focus="focus = true"
+				@blur="focus = false"
+				@update:model-value="handleChange($event)"
+			/>
+			<div class="formatted-currency">{{ formattedValue }}</div>
+		</div>
+		<div class="currency-interface-footer"></div>
 	</div>
 </template>
 
@@ -96,5 +99,9 @@ export default defineComponent({
 	margin-top: 4px;
 	font-size: 0.8em;
 	color: var(--foreground-subdued);
+}
+
+.currency-interface-footer {
+	height: 28px;
 }
 </style>
