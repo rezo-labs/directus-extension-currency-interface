@@ -47,7 +47,7 @@ export default defineComponent({
 				value = parseFloat(value);
 				if (isNaN(value)) return null;
 			}
-			return props.prefix + formatter.format(value) + props.suffix;
+			return (props.prefix ?? '') + formatter.format(value) + (props.suffix ?? '');
 		});
 
 		const focus = ref(false);
