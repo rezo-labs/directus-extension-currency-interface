@@ -3,7 +3,7 @@
 # Introduction
 A [Directus](https://github.com/directus/directus) interface extension that displays currency value properly.
 
-![](./screenshots/screenshot1.png)
+![](./screenshots/demo.gif)
 
 # Installation
 ```
