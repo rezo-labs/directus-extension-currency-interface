@@ -1,9 +1,11 @@
 <template>
 	<v-input v-if="disabled" :model-value="formattedValue" disabled />
-	<div v-else>
+	<div v-else class="currency-interface" :class="{ focus }">
 		<v-input
 			:model-value="value"
 			:type="inputType"
+			@focus="focus = true"
+			@blur="focus = false"
 			@update:model-value="handleChange($event)"
 		/>
 		<div class="formatted-currency">{{ formattedValue }}</div>
@@ -11,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 
 export default defineComponent({
 	props: {
@@ -48,12 +50,19 @@ export default defineComponent({
 			return props.prefix + formatter.format(value) + props.suffix;
 		});
 
+		const focus = ref(false);
+
 		const inputType = computed(() => {
 			if (['bigInteger', 'integer', 'float', 'decimal'].includes(props.type)) return 'number';
 			return 'text';
 		});
 
-		return { formattedValue, inputType, handleChange };
+		return {
+			formattedValue,
+			focus,
+			inputType,
+			handleChange,
+		};
 
 		function handleChange(value: string): void {
 			emit('input', value);
@@ -63,8 +72,28 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.currency-interface {
+	position: relative;
+}
+
+.currency-interface:not(.focus) .v-input {
+	--v-input-color: transparent;
+}
+
 .formatted-currency {
-	padding: 4px 0 0 18px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding-left: 18px;
+	cursor: text;
+	pointer-events: none;
+	transition: 0.2s ease-in-out;
+}
+
+.currency-interface.focus .formatted-currency {
+	top: 100%;
+	transform: translateY(0%);
+	margin-top: 4px;
 	font-size: 0.8em;
 	color: var(--foreground-subdued);
 }
